@@ -1,10 +1,9 @@
 package com.microservice.user.controller;
 
-import com.microservice.user.dto.UserRecordDto;
+import com.microservice.user.dto.UserRecordDTO;
 import com.microservice.user.entity.User;
 import com.microservice.user.service.UserService;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +22,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> saveUser(@RequestBody @Valid UserRecordDto userRecordDto) {
+    public ResponseEntity<User> saveUser(@RequestBody @Valid UserRecordDTO userRecordDto) {
         User user = userService.save(userRecordDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
